@@ -1,0 +1,17 @@
+---
+- name: Install prerequisites
+  apt:
+    name: 'aptitude'
+    update_cache: yes
+    state: latest
+    force_apt_get: yes
+- name: Install PHP
+  apt:
+    name: "{{ php_version }}"
+    update_cache: yes
+    state: present
+- name: Install PHP modules
+  apt:
+    name: "{{ php_modules }}"
+    update_cache: yes
+    state: present
